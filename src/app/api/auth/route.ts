@@ -4,13 +4,12 @@ import { db } from '@/lib/db';
 
 export async function  POST(req: Request, res: Response) {
     const { username, password } = await req.json()
-    console.log("here")
       try{
           if(!username || !password) throw new Error("No user found")
             const user = await db.admin.findUnique({
                 where: { username: username },
             })
-           if(!user) throw new Error("No user found")
+           if(!user) return NextResponse.json("No user found", { status: 401 })
             if(user?.password === password){
                 return NextResponse.json(user, { status: 200 })
             }

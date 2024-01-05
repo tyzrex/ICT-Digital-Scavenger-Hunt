@@ -30,17 +30,17 @@ export default function AddHint() {
         <h1 className="text-2xl md:text-4xl font-bold text-left">Add Hint</h1>
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col justify-center mt-10 max-w-[80%] w-full lg:max-w-3xl gap-5"
+          className="p-10 bg-black mb-10 flex flex-col justify-center mt-10 max-w-[80%] w-full lg:max-w-3xl gap-5"
         >
           <input
-            className="bg-blue-600 px-4 py-2 rounded-md font-bold text-xl"
+            className="bg-zinc-800 px-4 py-2 rounded-md font-bold text-xl"
             type="text"
             value={hint}
             onChange={(e) => setHint(e.target.value)}
             placeholder="Hint"
           />
           <input
-            className="bg-blue-600 px-4 py-2 rounded-md font-bold text-xl"
+            className="bg-zinc-800 px-4 py-2 rounded-md font-bold text-xl"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

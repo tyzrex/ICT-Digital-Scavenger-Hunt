@@ -26,10 +26,9 @@ export default function Login() {
       });
       if (response?.error) {
         toast.error("Wrong username or password");
-        return;
       } else {
         toast.success("Login Successful");
-        router.push("/");
+        router.push("/admin");
       }
     } catch (error) {
       console.log(error);
@@ -44,14 +43,14 @@ export default function Login() {
         </h1>
         <form className="flex flex-col justify-center mt-10 max-w-[80%] w-full lg:max-w-3xl gap-5">
           <input
-            className="bg-blue-600 px-4 py-2 rounded-md font-bold text-xl"
+            className="bg-zinc-800 px-4 py-2 rounded-md font-bold text-xl"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             placeholder="Username"
           />
           <input
-            className="bg-blue-600 px-4 py-2 rounded-md font-bold text-xl"
+            className="bg-zinc-800 px-4 py-2 rounded-md font-bold text-xl"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

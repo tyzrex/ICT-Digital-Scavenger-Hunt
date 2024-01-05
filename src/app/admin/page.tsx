@@ -1,10 +1,10 @@
 import { getServerSession } from "next-auth";
-import Link from "next/link";
 
 import { db } from "@/lib/db";
 
 import { options } from "../api/auth/[...nextauth]/options";
 import AddHint from "./_components/add-hint";
+import Logout from "./_components/logout";
 
 export default async function Admin() {
   const hints = await db.scavenger.findMany({});
@@ -17,17 +17,13 @@ export default async function Admin() {
         <h1 className="text-2xl md:text-4xl font-bold text-left">
           Admin Dashboard
         </h1>
-        <Link href="/api/auth/signout">
-          <button className="bg-blue-600 px-4 py-2 rounded-md font-bold text-xl">
-            Logout
-          </button>
-        </Link>
+        <Logout />
       </div>
 
       <div className="col-span-12 font-sans mt-10">
         <div className="overflow-auto lg:overflow-visible ">
-          <table className="table text-gray-400 border-separate space-y-6 text-sm w-full">
-            <thead className="bg-gray-800 text-gray-500">
+          <table className="table text-white  space-y-6 text-sm w-full">
+            <thead className="bg-black/60">
               <tr>
                 <th className="p-3">Id</th>
                 <th className="p-3 text-left">Location Hint</th>
@@ -37,7 +33,7 @@ export default async function Admin() {
             </thead>
             <tbody>
               {hints.map((hint, index) => (
-                <tr className="bg-gray-800" key={index}>
+                <tr className="bg-black/60 " key={index}>
                   <td className="p-3">{hint.id}</td>
                   <td className="p-3">{hint.location_hint}</td>
                   <td className="p-3 font-bold">{hint.password}</td>
