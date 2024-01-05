@@ -1,18 +1,16 @@
 import "./globals.css";
 
 import type { Metadata } from "next";
-import { Inter, Syncopate } from "next/font/google";
+import { Syncopate } from "next/font/google";
 import { Toaster } from "sonner";
 
 import ScavengerHero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import RoboFamilyImage from "@/components/RoboFamily";
 
-export const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-export const syncopate = Syncopate({
+const syncopate = Syncopate({
   subsets: ["latin"],
   weight: ["400", "700"],
-  variable: "--font-syncopate",
 });
 
 export const metadata: Metadata = {
