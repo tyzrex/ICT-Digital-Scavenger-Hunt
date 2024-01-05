@@ -4,15 +4,20 @@ import { db } from "@/lib/db";
 
 import { options } from "../api/auth/[...nextauth]/options";
 import AddHint from "./_components/add-hint";
+import DeleteHint from "./_components/delete-hint";
+import EditButton from "./_components/edit-hint";
 import Logout from "./_components/logout";
 
 export default async function Admin() {
-  const hints = await db.scavenger.findMany({});
+  const hints = await db.scavenger.findMany({
+    orderBy: {
+      id: "asc",
+    },
+  });
   const session = await getServerSession(options);
 
   return (
     <>
-      {/* make a table to see all the hints and the passwords */}
       <div className="flex justify-between  items-center text-white">
         <h1 className="text-2xl md:text-4xl font-bold text-left">
           Admin Dashboard
@@ -38,12 +43,8 @@ export default async function Admin() {
                   <td className="p-3">{hint.location_hint}</td>
                   <td className="p-3 font-bold">{hint.password}</td>
                   <td className="p-3 space-x-4">
-                    <button className="bg-blue-600 px-4 py-2 rounded-md font-bold text-xl">
-                      Edit
-                    </button>
-                    <button className="bg-red-600 px-4 py-2 rounded-md font-bold text-xl">
-                      Delete
-                    </button>
+                    <EditButton hint={hint} />
+                    <DeleteHint hint={hint} />
                   </td>
                 </tr>
               ))}
@@ -51,7 +52,9 @@ export default async function Admin() {
           </table>
         </div>
 
-        <AddHint />
+        <div className="flex items-center">
+          <AddHint />
+        </div>
       </div>
     </>
   );

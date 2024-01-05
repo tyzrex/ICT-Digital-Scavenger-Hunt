@@ -62,3 +62,34 @@ export const checkLastHint = async (id: number) => {
         }
     }
   
+export const editExistingHint = async (id: number, hint:string, password:string) => {
+    try{
+        const newHint = await db.scavenger.update({
+            where: { id: id },
+            data: {
+                password: password,
+                location_hint: hint
+            }
+        })
+        revalidatePath('/admin')
+        return newHint
+    }
+    catch(e){
+        throw new Error("No more scavenger hunts")
+    }
+}
+
+export const deleteExistingHint = async (id: number) => {
+    try{
+        await db.scavenger.delete({
+            where: { id: id },
+        })
+        revalidatePath('/admin')
+        return {
+            message: "deleted"
+        }
+    }
+    catch(e){
+        throw new Error("No more scavenger hunts")
+    }
+}

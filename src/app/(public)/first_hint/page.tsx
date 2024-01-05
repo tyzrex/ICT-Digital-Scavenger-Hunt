@@ -1,9 +1,14 @@
 import { db } from "@/lib/db";
 
 export default async function FirstHint() {
+  const firstInDb = await db.scavenger.findFirst({
+    orderBy: {
+      id: "asc",
+    },
+  });
   const hint = await db.scavenger.findUnique({
     where: {
-      id: 1,
+      id: firstInDb?.id,
     },
   });
   return (
