@@ -1,10 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { toast } from "sonner";
 
-import { checkPassword, getNewPassword } from "../../actions/user-action";
+import {
+  checkLastHint,
+  checkPassword,
+  getNewPassword,
+} from "../../../actions/user-action";
 
 type Props = {
   params: {
@@ -19,7 +23,6 @@ export default function Hint({ params }: Props) {
   const handleClick = async (e: any) => {
     e.preventDefault();
     try {
-      console.log(params.id, password);
       const response = await checkPassword(params.id, password);
       if (response === true) {
         toast.success("Correct Password");
@@ -33,6 +36,17 @@ export default function Hint({ params }: Props) {
       toast.error("Wrong Password");
     }
   };
+
+  useEffect(
+    () => {
+      async function fetchData() {
+        await checkLastHint(params.id);
+      }
+      fetchData();
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
 
   return (
     <>

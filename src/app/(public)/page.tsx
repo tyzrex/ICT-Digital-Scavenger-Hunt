@@ -1,3 +1,5 @@
+"use client";
+
 export default function Home() {
   return (
     <section className="text-white flex flex-col uppercase items-start mt-2 p-4">
