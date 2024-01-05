@@ -38,7 +38,7 @@ export default function Hint({ params }: Props) {
     <>
       <main className="flex flex-col items-start pb-20">
         <form
-          className="flex flex-col justify-center mt-10 px-6 w-full max-w-4xl gap-5 "
+          className="flex flex-col justify-center mt-10 px-6 w-full lg:max-w-4xl gap-5 "
           onSubmit={handleClick}
         >
           <label

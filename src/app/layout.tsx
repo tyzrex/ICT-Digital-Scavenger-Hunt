@@ -30,12 +30,12 @@ export default function RootLayout({
       <body className={syncopate.className}>
         <Toaster richColors />
         <Navbar />
-        <div className="flex items-start gap-10 mt-5 flex-col lg:flex-row max-w-[80%] mx-auto">
-          <div className="w-1/2">
+        <div className="flex items-start gap-10 mt-5 flex-col lg:flex-row lg:max-w-[80%] mx-auto">
+          <div className="lg:w-1/2">
             <ScavengerHero />
             {children}
           </div>
-          <div className="w-1/2">
+          <div className="lg:w-1/2">
             <RoboFamilyImage />
           </div>
         </div>
