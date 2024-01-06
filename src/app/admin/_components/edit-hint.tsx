@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
-import { editExistingHint } from "@/app/actions/user-action";
+import { editExistingHint } from "@/actions/user-action";
 import {
   Dialog,
   DialogClose,
@@ -15,6 +15,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+
+editExistingHint;
 
 export default function EditButton({ hint }: { hint: any }) {
   const [location_hint, setLocationHint] = useState(hint.location_hint);

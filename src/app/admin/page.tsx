@@ -33,6 +33,7 @@ export default async function Admin() {
                 <th className="p-3">Id</th>
                 <th className="p-3 text-left">Location Hint</th>
                 <th className="p-3 text-left">Password</th>
+                <th className="p-3 text-left">Type</th>
                 <th className="p-3 text-left">Action</th>
               </tr>
             </thead>
@@ -42,6 +43,7 @@ export default async function Admin() {
                   <td className="p-3">{hint.id}</td>
                   <td className="p-3">{hint.location_hint}</td>
                   <td className="p-3 font-bold">{hint.password}</td>
+                  <td className="p-3 font-bold">{hint.type}</td>
                   <td className="p-3 space-x-4">
                     <EditButton hint={hint} />
                     <DeleteHint hint={hint} />

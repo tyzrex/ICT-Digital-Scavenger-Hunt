@@ -4,16 +4,16 @@ import { useState } from "react";
 
 import { toast } from "sonner";
 
-import { addNewHint } from "@/app/actions/user-action";
+import { addNewHint } from "../../../actions/user-action";
 
 export default function AddHint() {
   const [hint, setHint] = useState("");
   const [password, setPassword] = useState("");
-
+  const [type, setType] = useState("");
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      const response = await addNewHint(hint, password);
+      const response = await addNewHint(hint, password, type as any);
       if (response) {
         toast.success("Hint Added Successfully");
         setHint("");
@@ -46,6 +46,14 @@ export default function AddHint() {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
           />
+          <select
+            className="bg-zinc-800 px-4 py-2 rounded-md font-bold text-xl"
+            onChange={(e) => setType(e.target.value)}
+          >
+            <option value="Route1">Route 1</option>
+            <option value="Route2">Route 2</option>
+            <option value="Route3">Route 3</option>
+          </select>
           <button
             className="bg-blue-600 px-4 py-2 rounded-md font-bold text-xl"
             type="submit"

@@ -1,7 +1,7 @@
 "use client";
 import { toast } from "sonner";
 
-import { deleteExistingHint } from "@/app/actions/user-action";
+import { deleteExistingHint } from "@/actions/user-action";
 
 export default function DeleteHint({ hint }: { hint: any }) {
   const deleteHint = async () => {

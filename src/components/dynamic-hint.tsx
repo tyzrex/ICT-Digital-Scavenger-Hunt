@@ -8,25 +8,24 @@ import {
   checkLastHint,
   checkPassword,
   getNewPassword,
-} from "../../../actions/user-action";
+} from "../actions/user-action";
 
 type Props = {
-  params: {
-    id: number;
-  };
+  id: number;
+  route: any;
 };
 
-export default function Hint({ params }: Props) {
+export default function DynamicHintPage({ id, route }: Props) {
   const [password, setPassword] = useState("");
   const [hint, setHint] = useState<string | undefined>("");
   const [newPassword, setNewPassword] = useState<string | undefined>("");
   const handleClick = async (e: any) => {
     e.preventDefault();
     try {
-      const response = await checkPassword(params.id, password);
+      const response = await checkPassword(id, password, route);
       if (response === true) {
         toast.success("Correct Password");
-        const nextHint = await getNewPassword(params.id);
+        const nextHint = await getNewPassword(id, route);
         setHint(nextHint.location);
         setNewPassword(nextHint.password);
       } else {
@@ -40,7 +39,7 @@ export default function Hint({ params }: Props) {
   useEffect(
     () => {
       async function fetchData() {
-        await checkLastHint(params.id);
+        await checkLastHint(id, route);
       }
       fetchData();
     },
@@ -50,7 +49,7 @@ export default function Hint({ params }: Props) {
 
   return (
     <>
-      <main className="flex flex-col items-start pb-20">
+      <div className="flex flex-col items-start pb-20">
         <form
           className="flex flex-col justify-center mt-10 px-6 w-full lg:max-w-4xl gap-5 "
           onSubmit={handleClick}
@@ -81,8 +80,8 @@ export default function Hint({ params }: Props) {
         </form>
 
         {newPassword && hint && (
-          <div className="flex flex-col px-6 lg:flex-row items-center justify-center gap-5 mt-10">
-            <div className="p-4 rounded-md bg-blue-600 text-white font-sans w-full md:max-w-[400px] min-h-[160px] space-y-4">
+          <div className="flex flex-col px-6 items-center justify-center gap-5 mt-10">
+            <div className="p-4 rounded-md bg-blue-600 text-white font-sans w-full min-h-[160px] space-y-4">
               <h2 className="text-xl font-semibold">
                 Hint for the next destination
               </h2>
@@ -92,7 +91,7 @@ export default function Hint({ params }: Props) {
                 <span className="text-white font-bold">{hint}</span>
               </p>
             </div>
-            <div className="p-4 rounded-md bg-green-600 font-sans w-full md:max-w-[400px] min-h-[160px] text-white space-y-4">
+            <div className="p-4 rounded-md bg-green-600 font-sans w-full min-h-[160px] text-white space-y-4">
               <h2 className="text-xl font-semibold">New Password</h2>
               <p className="text-xl text-white">
                 The password for the next QR is
@@ -102,7 +101,7 @@ export default function Hint({ params }: Props) {
             </div>
           </div>
         )}
-      </main>
+      </div>
     </>
   );
 }
