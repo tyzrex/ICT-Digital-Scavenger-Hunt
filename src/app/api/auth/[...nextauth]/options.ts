@@ -1,3 +1,4 @@
+import axios from 'axios';
 import type { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
@@ -13,19 +14,15 @@ export const options: NextAuthOptions = {
 
        async authorize(credentials, _req) {
         try{
-            const user = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(credentials),
-                })
-                const data = await user.json()
+            const user = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/auth`, {
+                username: credentials?.username,
+                password: credentials?.password,
+            })
                 if(user.status === 200){
-                    return data
+                    return user.data
                 }
                 else{
-                    throw new Error(data)
+                    return null
                 }
         }
         catch(e){
