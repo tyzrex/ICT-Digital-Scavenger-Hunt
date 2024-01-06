@@ -10,10 +10,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Route {
+  Route1
+  Route2
+  Route3
+}
+
 model Scavenger {
   id            Int    @id @default(autoincrement())
   location_hint String
   password      String
+  type          Route
 }
 
 model Admin {
