@@ -19,22 +19,20 @@ export default async function Admin() {
   return (
     <>
       <div className="flex justify-between  items-center text-white">
-        <h1 className="text-2xl md:text-4xl font-bold text-left">
-          Admin Dashboard
-        </h1>
+        <h1 className="text-2xl md:text-4xl font-bold ">Admin Dashboard</h1>
         <Logout />
       </div>
 
       <div className="col-span-12 font-sans mt-10">
         <div className="overflow-auto lg:overflow-visible ">
-          <table className="table text-white  space-y-6 text-sm w-full">
+          <table className="table text-white text-center space-y-6 text-sm w-full">
             <thead className="bg-black/60">
               <tr>
-                <th className="p-3">Id</th>
-                <th className="p-3 text-left">Location Hint</th>
-                <th className="p-3 text-left">Password</th>
-                <th className="p-3 text-left">Type</th>
-                <th className="p-3 text-left">Action</th>
+                <th className="p-3 ">Id</th>
+                <th className="p-3 ">Location Hint</th>
+                <th className="p-3 ">Password</th>
+                <th className="p-3 ">Type</th>
+                <th className="p-3 ">Action</th>
               </tr>
             </thead>
             <tbody>

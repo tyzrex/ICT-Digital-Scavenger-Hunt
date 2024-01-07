@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 export default function RoboFamilyImage() {
   const pathname = usePathname();
-  const hint = pathname.split("/")[2];
+  const hint = pathname.split("/")[3];
   return (
     <>
       <div className="flex flex-col items-end justify-center mt-10 gap-5 px-6 ">

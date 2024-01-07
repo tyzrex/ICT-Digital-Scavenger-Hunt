@@ -80,7 +80,7 @@ export default function DynamicHintPage({ id, route }: Props) {
         </form>
 
         {newPassword && hint && (
-          <div className="flex flex-col px-6 items-center justify-center gap-5 mt-10">
+          <div className="flex flex-col px-6 items-center justify-center gap-5 mt-10 w-full">
             <div className="p-4 rounded-md bg-blue-600 text-white font-sans w-full min-h-[160px] space-y-4">
               <h2 className="text-xl font-semibold">
                 Hint for the next destination

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 
+import { Edit } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
@@ -39,7 +40,9 @@ export default function EditButton({ hint }: { hint: any }) {
   return (
     <>
       <Dialog>
-        <DialogTrigger>Edit</DialogTrigger>
+        <DialogTrigger className="bg-blue-600 px-4 py-2 rounded-md font-bold text-xl">
+          <Edit className="cursor-pointer" size={18} />
+        </DialogTrigger>
         <DialogContent>
           <DialogHeader>
             <DialogTitle className="text-white">Edit Entry</DialogTitle>
