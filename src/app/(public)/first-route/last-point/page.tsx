@@ -13,7 +13,6 @@ export default async function LastPoint() {
       id: maxRoute1Count,
     },
   });
-  console.log(lastHint);
   if (!lastHint) {
     return (
       <div className="text-white text-center">

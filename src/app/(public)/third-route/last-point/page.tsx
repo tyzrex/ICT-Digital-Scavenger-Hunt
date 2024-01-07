@@ -3,16 +3,20 @@ import { db } from "@/lib/db";
 import { RouteType } from "@/lib/utils";
 
 export default async function LastPoint() {
-  const maxRoute1Count = await db.scavenger.count({
+  const maxRoute3Count = await db.scavenger.findFirst({
     where: {
       type: "Route3",
+    },
+    orderBy: {
+      id: "desc",
     },
   });
   const lastHint = await db.scavenger.findUnique({
     where: {
-      id: maxRoute1Count,
+      id: maxRoute3Count?.id,
     },
   });
+
   if (!lastHint) {
     return (
       <div className="text-white text-center">

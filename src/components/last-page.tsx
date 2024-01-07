@@ -1,13 +1,10 @@
 "use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import { toast } from 'sonner';
+import { toast } from "sonner";
 
-import {
-  checkPassword,
-  getNewPassword,
-} from '../actions/user-action';
+import { checkPassword, getNewPassword } from "../actions/user-action";
 
 type Props = {
   id: number;
@@ -15,7 +12,6 @@ type Props = {
 };
 
 export default function LastHintPage({ id, route }: Props) {
-  console.log(id, route);
   const [password, setPassword] = useState("");
   const [hint, setHint] = useState<string | undefined>("");
   const [newPassword, setNewPassword] = useState<string | undefined>("");
@@ -81,7 +77,7 @@ export default function LastHintPage({ id, route }: Props) {
 
         {newPassword && hint && (
           <>
-            <div className="text-white">
+            <div className="text-white font-sans">
               <div className=" p-6  md:mx-auto">
                 <svg
                   viewBox="0 0 24 24"
@@ -94,10 +90,11 @@ export default function LastHintPage({ id, route }: Props) {
                 </svg>
                 <div className="text-center">
                   <h3 className="md:text-2xl text-base font-semibold text-center">
-                    Payment Done!
+                    You have reached the last point of the scavenger hunt
                   </h3>
                   <p className="text-white font-bold my-2">
-                    Thank you for completing the scavenger hunt
+                    Thank you for completing the scavenger hunt and we hope you
+                    enjoyed it!
                   </p>
                   <p> Have a great day! </p>
                   <div className="py-10 text-center"></div>
