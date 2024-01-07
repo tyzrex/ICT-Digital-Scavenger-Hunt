@@ -1,10 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState } from 'react';
 
-import { toast } from "sonner";
+import { toast } from 'sonner';
 
-import { checkPassword, getNewPassword } from "../actions/user-action";
+import {
+  checkPassword,
+  getNewPassword,
+} from '../actions/user-action';
 
 type Props = {
   id: number;
