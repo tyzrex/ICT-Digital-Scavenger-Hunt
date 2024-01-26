@@ -53,6 +53,8 @@ export default function AddHint() {
             <option value="Route1">Route 1</option>
             <option value="Route2">Route 2</option>
             <option value="Route3">Route 3</option>
+            <option value="Route4">Route 4</option>
+            <option value="Route5">Route 5</option>
           </select>
           <button
             className="bg-blue-600 px-4 py-2 rounded-md font-bold text-xl"

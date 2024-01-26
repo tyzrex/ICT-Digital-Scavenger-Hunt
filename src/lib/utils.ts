@@ -12,4 +12,6 @@ export enum RouteType {
     "Route1" = "Route1",
     "Route2" = "Route2",
     "Route3" = "Route3",
+    "Route4" = "Route4",
+    "Route5" = "Route5",
 }
