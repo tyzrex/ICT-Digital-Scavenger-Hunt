@@ -1,6 +1,8 @@
 import FirstHintPage from "@/components/first-page";
 import { db } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 export default async function Page() {
   const firstInDb = await db.scavenger.findFirst({
     where: {
