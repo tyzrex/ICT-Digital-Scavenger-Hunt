@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 export default async function LastPoint() {
   const maxRoute3Count = await db.scavenger.findFirst({
     where: {
-      type: "Route3",
+      type: "Route4",
     },
     orderBy: {
       id: "desc",
@@ -28,7 +28,7 @@ export default async function LastPoint() {
   }
   return (
     <>
-      <LastHintPage id={lastHint?.id} route={RouteType.Route3} />
+      <LastHintPage id={lastHint?.id} route={RouteType.Route4} />
     </>
   );
 }

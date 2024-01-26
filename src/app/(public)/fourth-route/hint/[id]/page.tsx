@@ -12,7 +12,7 @@ type Props = {
 export default function Hint({ params }: Props) {
   return (
     <>
-      <DynamicHintPage id={params.id} route={RouteType.Route3} />
+      <DynamicHintPage id={params.id} route={RouteType.Route4} />
     </>
   );
 }
