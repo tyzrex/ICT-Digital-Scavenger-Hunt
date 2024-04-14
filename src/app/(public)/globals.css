@@ -82,7 +82,11 @@
 }
 
 body {
-  background: url("../../../public/scabenger.png");
+  background: radial-gradient(
+    circle at 24.1% 68.8%,
+    rgb(30, 30, 30) 0%,
+    rgb(0, 0, 0) 99.4%
+  );
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

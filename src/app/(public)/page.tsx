@@ -1,29 +1,42 @@
-"use client";
+const rules = [
+  {
+    id: 1,
+    description:
+      "Scan the QR placed in different locatons around the college premises to get hints",
+  },
+  {
+    id: 2,
+    description: "Complete three Competitive rounds",
+  },
+  {
+    id: 3,
+    description: "The fastest one to complete all the rounds wins",
+  },
+];
 
 export default function Home() {
   return (
-    <section className="text-white flex flex-col uppercase items-start mt-2 p-4">
-      <h1 className="text-2xl md:text-4xl font-bold text-left">
-        Welcome to the Digital Scavenger Hunt
-      </h1>
-      <p className="text-xl md:text-2xl font-bold mt-10 uppercase">
-        The rules of the game are simple:
-      </p>
-      <ol className="list-decimal list-inside mt-5 font-sans">
-        <li className="text-md md:text-xl font-bold">
-          You will be given a password and a hint for the next location.
-        </li>
-        <li className="text-md md:text-xl font-bold">
-          You have to find the QR code at the location and scan it to get the
-          next password and hint.
-        </li>
-        <li className="text-md md:text-xl font-bold">
-          You have to repeat the process until you reach the final destination.
-        </li>
-        <li className="text-md md:text-xl font-bold">
-          The first person to reach the final destination will be the winner.
-        </li>
-      </ol>
+    <section className="text-white flex flex-col items-start mt-2 p-4">
+      <h1 className="text-2xl md:text-5xl font-bold text-left">How to win?</h1>
+      <div className="mt-10 flex flex-col gap-5 items-start">
+        {rules.map((rule) => (
+          <div className="flex items-center justify-center gap-10">
+            <div className="rounded-xl h-[40px] w-[40px] p-8 flex items-center justify-center bg-white">
+              <h1 className="text-2xl md:text-5xl font-bold text-left text-[#E62B1E]">
+                {rule.id}
+              </h1>
+            </div>
+            <p key={rule.id} className="text-lg md:text-2xl font-light mt-5">
+              {rule.description}
+            </p>
+          </div>
+        ))}
+      </div>
+      <div className="mt-10">
+        <h1 className="text-[#E62B1E] text-2xl md:text-5xl font-bold text-left">
+          READY TO SCAN?
+        </h1>
+      </div>
     </section>
   );
 }

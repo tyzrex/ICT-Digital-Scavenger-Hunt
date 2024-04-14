@@ -7,12 +7,6 @@ export default function Navbar() {
     <>
       <nav className="flex justify-between items-center p-4 backdrop-blur-xl bg-black/60 px-6">
         <Image src={ITClub} alt="IT Club Logo" width={150} height={50} />
-        <Image
-          src={PrimeCollege}
-          alt="Prime College Logo"
-          width={150}
-          height={50}
-        />
       </nav>
     </>
   );

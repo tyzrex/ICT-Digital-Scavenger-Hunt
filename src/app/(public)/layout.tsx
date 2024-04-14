@@ -1,14 +1,14 @@
 import "./globals.css";
 
 import type { Metadata } from "next";
-import { Syncopate } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { Toaster } from "sonner";
 
 import ScavengerHero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import RoboFamilyImage from "@/components/RoboFamily";
 
-const syncopate = Syncopate({
+const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "700"],
 });
@@ -25,10 +25,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={syncopate.className}>
+      <body className={poppins.className}>
         <Toaster richColors />
         <Navbar />
-        <div className="flex items-start gap-10 mt-5 flex-col lg:flex-row lg:max-w-[80%] mx-auto">
+        <div className="flex items-start gap-10 mt-5 flex-col lg:flex-row lg:max-w-[80%] mx-auto pb-10">
           <div className="lg:w-1/2">
             <ScavengerHero />
             {children}
