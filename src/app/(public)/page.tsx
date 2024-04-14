@@ -20,7 +20,10 @@ export default function Home() {
       <h1 className="text-2xl md:text-5xl font-bold text-left">How to win?</h1>
       <div className="mt-10 flex flex-col gap-5 items-start">
         {rules.map((rule) => (
-          <div className="flex items-center justify-center gap-10">
+          <div
+            key={rule.id}
+            className="flex items-center justify-center gap-10"
+          >
             <div className="rounded-xl h-[40px] w-[40px] p-8 flex items-center justify-center bg-white">
               <h1 className="text-2xl md:text-5xl font-bold text-left text-[#E62B1E]">
                 {rule.id}
