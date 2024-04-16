@@ -6,16 +6,26 @@ import { redirect } from 'next/navigation';
 import { db } from '@/lib/db';
 import { RouteType } from '@/lib/utils';
 
-export const checkPassword = async (id: number, password: string, routeType: RouteType) => {
+export const checkPassword = async (id: number, password: string, routeType: RouteType, isLastHint?: boolean) => {
     try {
-        const prevId = parseInt(id.toString()) - 1;
-        const prevPassword = await db.scavenger.findFirst({
-            where: { id: prevId, type: routeType },
-            select: { password: true }
-        });
-        return prevPassword?.password === password;
+        if (isLastHint) {
+            const lastHint = await db.scavenger.findFirst({
+                where: { id: id, type: routeType }
+            });
+            return lastHint?.password === password;
+        }
+
+       const hints = await db.scavenger.findMany({
+              where: { id: { lt: parseInt(id.toString()) }, type: routeType },
+              orderBy: { id: 'asc' }
+         });
+        //check if the password is correct
+        const oneBefore = hints[hints.length - 1];
+        console.log(oneBefore);
+        return oneBefore?.password === password;
     }
     catch(e) {
+        console.log(e);
         throw new Error("Error in checking password");
     }
 }
