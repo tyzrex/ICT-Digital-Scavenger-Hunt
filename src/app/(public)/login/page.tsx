@@ -37,7 +37,7 @@ export default function Login() {
 
   return (
     <>
-      <section className="text-white flex flex-col uppercase mt-2 mx-auto w-full items-center">
+      <section className="text-white flex flex-col uppercase mt-10 mx-auto w-full items-center">
         <h1 className="text-2xl md:text-4xl font-bold text-left">
           Admin Login
         </h1>
