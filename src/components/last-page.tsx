@@ -18,7 +18,7 @@ export default function LastHintPage({ id, route }: Props) {
   const handleClick = async (e: any) => {
     e.preventDefault();
     try {
-      const response = await checkPassword(id, password, route);
+      const response = await checkPassword(id, password, route, true);
       if (response === true) {
         toast.success("Correct Password");
         const nextHint = await getNewPassword(id, route);

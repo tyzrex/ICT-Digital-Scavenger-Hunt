@@ -2,9 +2,11 @@
 
 import DynamicHintPage from "@/components/dynamic-hint";
 import { RouteType } from "@/lib/utils";
+import { Scavenger } from "@prisma/client";
 
 type Props = {
   params: {
+    route: Scavenger["type"];
     id: number;
   };
 };
@@ -12,7 +14,7 @@ type Props = {
 export default function Hint({ params }: Props) {
   return (
     <>
-      <DynamicHintPage id={params.id} route={RouteType.Route1} />
+      <DynamicHintPage id={params.id} route={params.route} />
     </>
   );
 }

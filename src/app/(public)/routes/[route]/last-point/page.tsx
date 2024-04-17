@@ -4,10 +4,16 @@ import { RouteType } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
-export default async function LastPoint() {
-  const maxRoute3Count = await db.scavenger.findFirst({
+type Hint = {
+  params: {
+    route: RouteType;
+  };
+};
+
+export default async function LastPoint({ params }: Hint) {
+  const maxRouteCount = await db.scavenger.findFirst({
     where: {
-      type: "Route4",
+      type: params.route,
     },
     orderBy: {
       id: "desc",
@@ -15,7 +21,7 @@ export default async function LastPoint() {
   });
   const lastHint = await db.scavenger.findUnique({
     where: {
-      id: maxRoute3Count?.id,
+      id: maxRouteCount?.id,
     },
   });
 
@@ -28,7 +34,7 @@ export default async function LastPoint() {
   }
   return (
     <>
-      <LastHintPage id={lastHint?.id} route={RouteType.Route4} />
+      <LastHintPage id={lastHint?.id} route={params.route} />
     </>
   );
 }
