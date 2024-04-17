@@ -9,11 +9,16 @@ import { addNewHint } from "../../../actions/user-action";
 export default function AddHint() {
   const [hint, setHint] = useState("");
   const [password, setPassword] = useState("");
+  const [quote, setQuote] = useState("");
   const [type, setType] = useState("");
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      const response = await addNewHint(hint, password, type as any);
+      if (!hint || !password || !type) {
+        toast.error("Please fill all the fields");
+        return;
+      }
+      const response = await addNewHint(hint, password, type as any, quote);
       if (response) {
         toast.success("Hint Added Successfully");
         setHint("");
@@ -56,6 +61,17 @@ export default function AddHint() {
             <option value="Route4">Route 4</option>
             <option value="Route5">Route 5</option>
           </select>
+
+          <div className="flex flex-col gap-5 items-start">
+            <input
+              className="bg-zinc-800 px-4 py-2 rounded-md font-bold text-xl w-full"
+              type="text"
+              value={quote}
+              onChange={(e) => setQuote(e.target.value)}
+              placeholder="Quote"
+            />
+          </div>
+
           <button
             className="bg-blue-600 px-4 py-2 rounded-md font-bold text-xl"
             type="submit"

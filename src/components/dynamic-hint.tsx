@@ -16,7 +16,6 @@ type Props = {
 };
 
 export default function DynamicHintPage({ id, route }: Props) {
-  console.log(id, route);
   const [password, setPassword] = useState("");
   const [hint, setHint] = useState<string | undefined>("");
   const [newPassword, setNewPassword] = useState<string | undefined>("");

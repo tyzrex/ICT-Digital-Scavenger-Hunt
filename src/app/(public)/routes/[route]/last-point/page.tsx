@@ -25,8 +25,6 @@ export default async function LastPoint({ params }: Hint) {
     },
   });
 
-  console.log(lastHint);
-
   if (!lastHint) {
     return (
       <div className="text-white text-center">

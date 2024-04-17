@@ -21,11 +21,9 @@ export const checkPassword = async (id: number, password: string, routeType: Rou
          });
         //check if the password is correct
         const oneBefore = hints[hints.length - 1];
-        console.log(oneBefore);
         return oneBefore?.password === password;
     }
     catch(e) {
-        console.log(e);
         throw new Error("Error in checking password");
     }
 }
@@ -46,13 +44,14 @@ export const getNewPassword = async (id: number, routeType: RouteType) => {
     }
 }
 
-export const addNewHint = async (hint: string, password: string, routeType: RouteType) => {
+export const addNewHint = async (hint: string, password: string, routeType: RouteType, quote:string) => {
     try {
         const newHint = await db.scavenger.create({
             data: {
                 password: password,
                 location_hint: hint,
-                type: routeType // Add the route type here
+                type: routeType, // Add the route type here
+                quote: quote
             }
         });
         revalidatePath('/admin');

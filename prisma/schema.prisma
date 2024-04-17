@@ -22,6 +22,7 @@ model Scavenger {
   id            Int    @id @default(autoincrement())
   location_hint String
   password      String
+  quote         String
   type          Route
 }
 

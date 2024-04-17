@@ -11,9 +11,7 @@ type Hint = {
 export const dynamic = "force-dynamic";
 
 export default async function Page({ params }: Hint) {
-  console.log(params);
   const hintParam = params.route;
-  console.log(hintParam);
   const firstInDb = await db.scavenger.findFirst({
     where: {
       type: hintParam,
