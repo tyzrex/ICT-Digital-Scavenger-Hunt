@@ -10,7 +10,7 @@ export default function AddHint() {
   const [hint, setHint] = useState("");
   const [password, setPassword] = useState("");
   const [quote, setQuote] = useState("");
-  const [type, setType] = useState("");
+  const [type, setType] = useState("Route1");
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
