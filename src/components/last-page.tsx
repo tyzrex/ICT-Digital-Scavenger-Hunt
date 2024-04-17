@@ -15,6 +15,7 @@ export default function LastHintPage({ id, route }: Props) {
   const [password, setPassword] = useState("");
   const [hint, setHint] = useState<string | undefined>("");
   const [newPassword, setNewPassword] = useState<string | undefined>("");
+  const [quote, setQuote] = useState<string | undefined>("");
   const handleClick = async (e: any) => {
     e.preventDefault();
     try {
@@ -24,6 +25,7 @@ export default function LastHintPage({ id, route }: Props) {
         const nextHint = await getNewPassword(id, route);
         setHint(nextHint.location);
         setNewPassword(nextHint.password);
+        setQuote(nextHint.quote);
       } else {
         toast.error("Wrong Password");
       }
@@ -75,9 +77,15 @@ export default function LastHintPage({ id, route }: Props) {
           </div>
         </form>
 
-        {newPassword && hint && (
+        {newPassword && hint && quote && (
           <>
             <div className="text-white font-sans">
+              <div className="p-4 rounded-md bg-yellow-600 font-sans w-full min-h-[160px] text-white space-y-4">
+                <h2 className="text-xl font-semibold">Speakers Note:</h2>
+                <p className="text-xl text-white">
+                  <span className="text-white font-bold">{quote}</span>
+                </p>
+              </div>
               <div className=" p-6  md:mx-auto">
                 <svg
                   viewBox="0 0 24 24"
