@@ -34,9 +34,11 @@ export const getNewPassword = async (id: number, routeType: RouteType) => {
         const newPassword = await db.scavenger.findFirst({
             where: { id: nextId, type: routeType },
         });
+        console.log(newPassword)
         return {
             password: newPassword?.password,
-            location: newPassword?.location_hint
+            location: newPassword?.location_hint,
+            quote: newPassword?.quote
         };
     }
     catch(e) {

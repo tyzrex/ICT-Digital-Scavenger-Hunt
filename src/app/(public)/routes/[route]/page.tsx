@@ -22,7 +22,7 @@ export default async function Page({ params }: Hint) {
   });
   if (!firstInDb) {
     return (
-      <div className="text-white text-center">
+      <div className="text-white text-center mt-10">
         <p className="text-xl font-semibold">No hints found</p>
       </div>
     );

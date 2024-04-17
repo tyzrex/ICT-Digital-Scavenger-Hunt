@@ -22,6 +22,7 @@ editExistingHint;
 export default function EditButton({ hint }: { hint: any }) {
   const [location_hint, setLocationHint] = useState(hint.location_hint);
   const [password, setPassword] = useState(hint.password);
+  const [quote, setQuote] = useState(hint.quote);
   const router = useRouter();
 
   const handleSubmit = async (e: any) => {
@@ -64,6 +65,16 @@ export default function EditButton({ hint }: { hint: any }) {
                   className="bg-zinc-800 px-4 py-2 rounded-md font-bold text-xl"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+
+              <div>
+                <p className="text-sm font-bold">Quote</p>
+                <input
+                  type="text"
+                  className="bg-zinc-800 px-4 py-2 rounded-md font-bold text-xl"
+                  value={quote}
+                  onChange={(e) => setQuote(e.target.value)}
                 />
               </div>
             </DialogDescription>

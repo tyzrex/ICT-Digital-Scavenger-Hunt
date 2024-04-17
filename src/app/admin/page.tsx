@@ -15,7 +15,7 @@ export default async function Admin() {
     },
   });
   const session = await getServerSession(options);
-
+  console.log(hints);
   return (
     <>
       <div className="flex justify-between  items-center text-white">
@@ -32,6 +32,7 @@ export default async function Admin() {
                 <th className="p-3 ">Location Hint</th>
                 <th className="p-3 ">Password</th>
                 <th className="p-3 ">Type</th>
+                <th className="p-3 ">Hint</th>
                 <th className="p-3 ">Action</th>
               </tr>
             </thead>
@@ -42,6 +43,7 @@ export default async function Admin() {
                   <td className="p-3">{hint.location_hint}</td>
                   <td className="p-3 font-bold">{hint.password}</td>
                   <td className="p-3 font-bold">{hint.type}</td>
+                  <td className="p-3">{hint.quote}</td>
                   <td className="p-3 space-x-4">
                     <EditButton hint={hint} />
                     <DeleteHint hint={hint} />
